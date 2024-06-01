@@ -1,0 +1,7 @@
+module fa_using_ha(sum_out,carry_out,a_in,b_in,c_in);
+input a_in,b_in,c_in;
+output sum_out,carry_out;
+wire w1,w2,w3;
+ha_ fa(.a_in(a_in),.b_in(b_in),.c_out(w2),.sum_out(w1));
+ha_ fa1(.a_in(a_in),.b_in(b_in),.c_out(w2),.sum_out(w1));
+endmodule

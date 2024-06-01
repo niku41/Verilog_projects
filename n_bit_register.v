@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 30.01.2024 19:49:18
+// Create Date: 30.01.2024 22:09:06
 // Design Name: 
-// Module Name: siso_using_dff
+// Module Name: n_bit_register
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module siso_using_dff(
-
-    );
+module n_bit_register#(parameter N=6) (
+  input clk,
+  input [N-1:0] D,
+  input rst,
+  output [N-1:0] Q
+);
+  reg [N-1:0] data;
+  always @(posedge clk) begin
+    if (rst) begin
+      data<=0; 
+    end else begin
+      data<=D;  
+    end
+  end
+  assign Q=data;  
 endmodule

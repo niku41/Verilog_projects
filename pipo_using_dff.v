@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 31.01.2024 13:50:52
+// Create Date: 31.01.2024 14:19:36
 // Design Name: 
-// Module Name: dff
+// Module Name: pipo_using_dff
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,14 +20,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module dff(D,clk,rst,Q);
-input D,clk,rst; 
-output reg Q;  
-always @(posedge clk) 
-begin
- if(rst==1'b1)
-  Q<=1'b0; 
- else 
-  Q<=D; 
-end 
+module pipo_using_dff(input clk,rst,[3:0]D,output [3:0]Q);
+dff dut1(.clk(clk),.D(D[0]),.Q(Q[0]),.rst(rst));
+dff dut2(.clk(clk),.D(D[1]),.Q(Q[1]),.rst(rst));
+dff dut3(.clk(clk),.D(D[2]),.Q(Q[2]),.rst(rst));
+dff dut4(.clk(clk),.D(D[3]),.Q(Q[3]),.rst(rst));
 endmodule
+

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 31.01.2024 13:50:52
+// Create Date: 31.01.2024 23:41:31
 // Design Name: 
-// Module Name: dff
+// Module Name: pipo
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,14 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module dff(D,clk,rst,Q);
-input D,clk,rst; 
-output reg Q;  
-always @(posedge clk) 
-begin
- if(rst==1'b1)
-  Q<=1'b0; 
- else 
-  Q<=D; 
-end 
+module pipo(input clk,
+    input rst,
+    input [3:0] D,
+    output reg [3:0] Q
+);
+always @(posedge clk) begin
+    if (rst) begin
+        Q<=4'b0000;
+    end else begin
+        Q<=D;      
+    end
+end
 endmodule
+
+

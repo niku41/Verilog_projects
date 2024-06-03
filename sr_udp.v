@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 07.02.2024 11:12:47
+// Create Date: 01.03.2024 22:03:14
 // Design Name: 
-// Module Name: dff
+// Module Name: sr_udp
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,8 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module dff(f,s0,s1,i0,i1,i2,i3);
-input s0,s1,i0,i1,i2,i3;
-output f;
-udp_dff DFF(f,s0,s1,i0,i1,i2,i3);
+module sr_udp(q,s,r);
+  output reg q;
+  input s,r;
+  srff_udp inst(q,s,rd);
 endmodule
+primitive srff_udp (q,s,r);
+   output q;
+   input s,r;
+   
+   reg q;
+   
+   initial q = 1'b1;
+   
+   table
+    // s r q q+
+    1 0 : ? : 1 ;
+    f 0 : 1 : - ;
+    0 r : ? : 0 ;
+    0 f : 0 : - ;
+    1 1 : ? : 0 ;
+  endtable
+  
+  endprimitive
+

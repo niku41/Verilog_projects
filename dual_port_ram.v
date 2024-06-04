@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 12.02.2024 16:30:33
+// Create Date: 14.02.2024 15:19:25
 // Design Name: 
 // Module Name: dual_port_ram
 // Project Name: 
@@ -27,8 +27,8 @@ always @(posedge clk) begin
     if (reset) begin
         q_a <= 8'b0; 
     end else begin
-        if (wr_a) begin
-            mem[addr_a] <= data_a;  
+    if (wr_a) begin
+    mem[addr_a] <= data_a;  
         end
         q_a <= mem[addr_a];  
     end

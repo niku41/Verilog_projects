@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 15.03.2024 16:18:22
+// Create Date: 15.03.2024 16:19:48
 // Design Name: 
-// Module Name: d_latch
+// Module Name: dff_async_rst
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module d_latch(
+module dff_async_rst(
 
     );
 endmodule

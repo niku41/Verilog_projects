@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 15.03.2024 16:18:22
+// Create Date: 15.03.2024 16:20:05
 // Design Name: 
-// Module Name: d_latch
+// Module Name: dff_sync_rst
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module d_latch(
+module dff_sync_rst(
 
     );
 endmodule

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 16.03.2024 10:41:48
+// Create Date: 16.03.2024 10:43:55
 // Design Name: 
-// Module Name: siso_using_dff
+// Module Name: nbit_siso
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,19 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module siso_using_dff(input clk,D,rst,output Q);
-wire w1,w2,w3;
-dff dut1(.clk(clk),.D(D),.Q(w1),.rst(rst));
-dff dut2(.clk(clk),.D(w1),.Q(w2),.rst(rst));
-dff dut3(.clk(clk),.D(w2),.Q(w3),.rst(rst));
-dff dut4(.clk(clk),.D(w3),.Q(Q),.rst(rst));
+module nbit_siso#(parameter N=6) (
+  input clk,
+  input [N-1:0] D,
+  input rst,
+  output [N-1:0] Q
+);
+  reg [N-1:0] data;
+  always @(posedge clk) begin
+    if (rst) begin
+      data<=0; 
+    end else begin
+      data<=D;  
+    end
+  end
+  assign Q=data;  
 endmodule
-

@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 30.01.2024 13:37:39
+// Create Date: 15.03.2024 16:25:15
 // Design Name: 
 // Module Name: count_ones
 // Project Name: 
@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module count_ones (input [7:0] in,
+module count_ones(input [7:0] in,
                     output [3:0] count
                     );
 
@@ -37,4 +37,5 @@ function [3:0] count_ones_function(input [7:0] inp);
 endfunction
 assign count = count_ones_function(in);
 endmodule
+
 

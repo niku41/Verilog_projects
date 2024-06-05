@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 16.03.2024 10:41:48
+// Create Date: 16.03.2024 10:43:14
 // Design Name: 
-// Module Name: siso_using_dff
+// Module Name: siso_shift_operator
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,18 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module siso_using_dff(input clk,D,rst,output Q);
-wire w1,w2,w3;
-dff dut1(.clk(clk),.D(D),.Q(w1),.rst(rst));
-dff dut2(.clk(clk),.D(w1),.Q(w2),.rst(rst));
-dff dut3(.clk(clk),.D(w2),.Q(w3),.rst(rst));
-dff dut4(.clk(clk),.D(w3),.Q(Q),.rst(rst));
+module siso_shift_operator(input clk,
+  input D,
+  input rst,
+  output reg Q
+);
+  reg [3:0]data;  
+  always @(posedge clk) begin
+    if(rst==1)
+      data<=4'b0000;  
+    else
+    data<=data<<1;
+    data[0]<=D;
+    Q<=data[3];   
+  end
 endmodule
-

@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 16.03.2024 10:55:58
+// Create Date: 16.03.2024 11:12:13
 // Design Name: 
-// Module Name: sipo_using_dff
+// Module Name: bcd_up_counter
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,10 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module sipo_using_dff(input clk,D,rst,output [3:0]Q);
-wire w1,w2,w3;
-dff dut1(.clk(clk),.D(D),.Q(Q[0]),.rst(rst));
-dff dut2(.clk(clk),.D(D),.Q(Q[1]),.rst(rst));
-dff dut3(.clk(clk),.D(D),.Q(Q[2]),.rst(rst));
-dff dut4(.clk(clk),.D(D),.Q(Q[3]),.rst(rst));
+module bcd_up_counter(input clk,
+    input rst,sel,
+    output reg [3:0]q
+);
+always @(posedge clk) begin
+    if (rst) begin
+        q=4'b0000;
+    end else
+        q=(q+1);
+       if(q==4'b1001) begin
+       q=4'b0000;
+       end
+end
 endmodule

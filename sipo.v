@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 31.01.2024 14:21:45
+// Create Date: 16.03.2024 10:55:10
 // Design Name: 
 // Module Name: sipo
 // Project Name: 
@@ -27,13 +27,14 @@ module sipo(input clk,
 );
 always @(posedge clk) begin
    if (rst) begin
-       Q <= 4'b0000;  // Reset all outputs to 0
+       Q <= 4'b0000; 
    end else begin
-       Q[0] <= D;      // Shift in the new input bit directly to the LSB
-       Q[1] <= Q[0];   // Shift existing bits to the right
+       Q[0] <= D;     
+       Q[1] <= Q[0];   
        Q[2] <= Q[1];
        Q[3] <= Q[2];
    end
 end
 endmodule
+
 
